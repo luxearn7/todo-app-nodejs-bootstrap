@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('components/header.ejs') %>
+        <h2>Tasks</h2>
+        <form action="/task" method="POST">
+            <input type="text" name="task">
+            <button>Search</button>
+            <button type="submit">Add</button>
+        </form>
+        <hr>
+        <div>
+            <% tasks.forEach(task => { %>
+                <div> <%= task.task %> </div>
+                <a href="/task/edit/<%= task.id %>">Edit</a>
+                <form method="POST" action="/task/<%= task.id %>?_method=DELETE">
+                    <button type="submit">Delete</button>
+                </form>
+                <hr>
+            <% }) %>
+        </div>
+    </div>
+
+</body>
+</html>
+

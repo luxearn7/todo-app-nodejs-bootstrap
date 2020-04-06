@@ -9,16 +9,18 @@
     <div class="container">
         <%- include('components/header.ejs') %>
         <h2>Tasks</h2>
-        <form action="/task" method="POST">
+        <%- include('components/errorMessage.ejs') %>
+        <form id="f1" action="/task" method="POST">
             <input type="text" name="task">
-            <button>Search</button>
             <button type="submit">Add</button>
         </form>
+        
+        
         <hr>
         <div>
             <% tasks.forEach(task => { %>
                 <div> <%= task.task %> </div>
-                <a href="/task/edit/<%= task.id %>">Edit</a>
+                <a id="btn-edit" href="/task/edit/<%= task.id %>">Edit</a>
                 <form method="POST" action="/task/<%= task.id %>?_method=DELETE">
                     <button type="submit">Delete</button>
                 </form>
@@ -28,5 +30,12 @@
     </div>
 
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script>
+      
+  </script>
 </html>
 

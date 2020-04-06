@@ -1,0 +1,35 @@
+.btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #313131;
+    cursor: pointer; 
+    padding: 0 0.4rem;      
+}
+
+.btn-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+
+.btn-hide {
+       
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    color: dodgerblue;
+}
+
+.btn-danger {
+    color: red;
+}
+
+.btn-warning {
+    color: coral;
+}

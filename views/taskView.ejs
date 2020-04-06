@@ -1,20 +1,22 @@
-
         <h2>Tasks</h2>
         <%- include('components/errorMessage.ejs') %>
-        <form id="f1" action="/task" method="POST">
-            <input type="text" name="task">
-            <button type="submit">Add</button>
+        <form class="form-add" id="f1" action="/task" method="POST">
+            <input class="text-input" type="text" name="task" autocomplete="off">
+            <button class="btn btn-primary" type="submit">Add</button>
         </form>
-        
-        
-        <hr>
-        <div>
+        <div class="tasks">
             <% tasks.forEach(task => { %>
-                <div> <%= task.task %> </div>
-                <a id="btn-edit" href="/task/edit/<%= task.id %>">Edit</a>
-                <form method="POST" action="/task/<%= task.id %>?_method=DELETE">
-                    <button type="submit">Delete</button>
-                </form>
+                <div class="task task-row">
+                    <div class="text"> 
+                        <%= task.task %> 
+                    </div>
+                    <div class="btn-row">
+                        <a class="btn btn-hide btn-default" id="btn-edit" href="/task/edit/<%= task.id %>">Edit</a>
+                        <form method="POST" action="/task/<%= task.id %>?_method=DELETE">
+                            <button class="btn btn-hide btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
                 <hr>
             <% }) %>
         </div>

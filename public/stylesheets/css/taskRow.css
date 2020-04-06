@@ -1,0 +1,24 @@
+.task-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.task-row:hover .btn-hide {
+    opacity: 1;
+    visibility: visible;
+}
+
+.task-row > * {
+    margin-left: 1rem;
+    
+}
+
+.task-row > *:first-child {
+    margin-left: 0;
+}
+
+.text {
+    padding: 0.1rem 0rem;
+    color: dodgerblue;
+}

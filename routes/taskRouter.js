@@ -3,26 +3,21 @@ const router = express.Router()
 const taskModel = require('../models/taskModel')
 
 //Get all tasks
-router.get('/', async function(req, res, next) {
-    // let search = {}
-    // if(req.query.task != null && req.query.task !='') {
-    //     search.task = new RegExp(req.query.task, 'i')
-    //}
+router.get('/', async function(req, res, next) {    
     try {
         const tasks = await taskModel.find({})
-        res.render('taskView', {tasks: tasks})
-        //res.render('taskView', {tasks: tasks})
+        res.render('taskView', {tasks: tasks})        
     } catch {
         res.redirect('/')
     }
 })
 
+//Get a task
 router.get('/:id', async function(req, res, next) {
     try {
         const task = await taskModel.findById(req.params.id)
         const tasks = await taskModel.find({})
-        res.render('taskView', {tasks: tasks})
-        //res.render('taskView', {tasks: tasks})
+        res.render('taskView', {tasks: tasks})       
     } catch {
         res.render('taskView', {
             errorMessage: 'Error creating Task'
@@ -30,7 +25,7 @@ router.get('/:id', async function(req, res, next) {
     }
 })
 
-//Edit a task
+//Get edit task
 router.get('/edit/:id', async function(req, res, next) {
     try {
         const task = await taskModel.findById(req.params.id)
@@ -50,7 +45,7 @@ router.post('/', async function(req, res, next) {
         res.redirect('/task')
     } catch {
         const tasks = await taskModel.find({})
-        res.render('taskView', {tasks: tasks, errorMessage: 'You must write a task'})
+        res.render('taskView', {tasks: tasks, errorMessage: 'Error: You must write a task'})
     }
 })
 
@@ -61,7 +56,6 @@ router.put('/edit/:id', async function(req, res, next) {
         task = await taskModel.findById(req.params.id)
         task.task = req.body.task
         await task.save()
-        // 
         res.redirect('/task')
     } catch {
         if (task == null) {
@@ -69,11 +63,12 @@ router.put('/edit/:id', async function(req, res, next) {
           } else {
             res.render('editView', {
               task: task,
-              errorMessage: 'Error updating Task'
+              errorMessage: 'Error: You must write a task'
             })
           }
     }
 })
+
 //Delete task
 router.delete('/:id', async function(req, res, nect) {
     let task

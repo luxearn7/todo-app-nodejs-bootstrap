@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task</title>
-</head>
-<body>
-    <div class="container">
-        <%- include('components/header.ejs') %>
+
         <h2>Tasks</h2>
         <%- include('components/errorMessage.ejs') %>
         <form id="f1" action="/task" method="POST">
@@ -27,15 +18,3 @@
                 <hr>
             <% }) %>
         </div>
-    </div>
-
-</body>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script>
-      
-  </script>
-</html>
-

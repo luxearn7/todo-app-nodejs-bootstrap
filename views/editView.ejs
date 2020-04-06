@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
-</head>
-<body>
-    <div class="container">        
-        <%- include('components/header.ejs') %>
-        <h2>Edit task</h2>
-        <%- include('components/errorMessage.ejs') %>
-        <form  method="POST" action="/task/edit/<%= task.id %>?_method=PUT">
-            <input type="text" name="task" value="<%= task.task %>">
-            <button type="submit">Save</button>
-            <a href="/task">Cancel</a>
-        </form>
-    </div>
+<h2>Edit task</h2>
 
-</body>
-</html>
+<form method="POST" action="/task/edit/<%= task.id %>?_method=PUT">
+    <input type="text" name="task" value="<%= task.task %>">
+    <button type="submit">Save</button>
+    <a href="/task">Cancel</a>
+</form>

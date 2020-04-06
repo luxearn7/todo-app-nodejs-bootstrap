@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
+const Layouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/indexRouter')
 const taskRouter = require('./routes/taskRouter')
@@ -12,6 +13,8 @@ const taskRouter = require('./routes/taskRouter')
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.set(express.static('public'));
+app.set('layout', 'layouts/layout')
+app.use(Layouts)
 app.use(bodyParser.urlencoded({
     extended: false
 }));

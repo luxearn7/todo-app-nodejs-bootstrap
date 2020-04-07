@@ -19,7 +19,7 @@
                 <% tasks.forEach(task => { %>
                     <tr>
                         <td class="td-task"><%= task.task %></td>
-                        <td class="td-action text-center">
+                        <td class=" text-center" style="width: 10rem;">
                             <div class="text-center btn-group">
                                 <a class="btn btn-warning" id="btn-edit" href="/task/edit/<%= task.id %>">Edit</a>
                                 <form class="form-delete btn-group" method="POST" action="/task/<%= task.id %>?_method=DELETE">

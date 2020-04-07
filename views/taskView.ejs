@@ -1,22 +1,33 @@
-        <h2>Tasks</h2>
-        <%- include('components/errorMessage.ejs') %>
-        <form class="form-add" id="f1" action="/task" method="POST">
-            <input class="text-input" type="text" name="task" autocomplete="off">
-            <button class="btn btn-primary" type="submit">Add</button>
-        </form>
-        <div class="tasks">
-            <% tasks.forEach(task => { %>
-                <div class="task task-row">
-                    <div class="text"> 
-                        <%= task.task %> 
-                    </div>
-                    <div class="btn-row">
-                        <a class="btn btn-hide btn-default" id="btn-edit" href="/task/edit/<%= task.id %>">Edit</a>
-                        <form method="POST" action="/task/<%= task.id %>?_method=DELETE">
-                            <button class="btn btn-hide btn-danger" type="submit">Delete</button>
-                        </form>
-                    </div>
+        <h2 class="mb-5">Tasks</h2>
+        <%- include('components/errorMessage.ejs') %>        
+        <div class="mb-4 form-group">        
+            <form class="input-group mb-3" action="/task" method="POST">
+                <input type="text" class="form-control" name="task" autocomplete="off" placeholder="Write task here">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Add</button>
                 </div>
-                <hr>
-            <% }) %>
+            </form>        
         </div>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Task name</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% tasks.forEach(task => { %>
+                    <tr>
+                        <td class="td-task"><%= task.task %></td>
+                        <td class="td-action text-center">
+                            <div class="text-center btn-group">
+                                <a class="btn btn-warning" id="btn-edit" href="/task/edit/<%= task.id %>">Edit</a>
+                                <form class="form-delete btn-group" method="POST" action="/task/<%= task.id %>?_method=DELETE">
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                <% }) %>              
+            </tbody>
+          </table>

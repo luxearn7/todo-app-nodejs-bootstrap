@@ -1,7 +1,11 @@
-<h2>Edit task</h2>
+<h2 class="mb-5">Edit task</h2>
 <%- include('components/errorMessage.ejs') %>
-<form method="POST" action="/task/edit/<%= task.id %>?_method=PUT">
-    <input class="text-input" type="text" name="task" value="<%= task.task %>">
-    <button class="btn btn-primary" type="submit">Save</button>
-    <a class="btn btn-danger" href="/task">Cancel</a>
-</form>
+<div class="form-group">
+    <form class="input-group" method="POST" action="/task/edit/<%= task.id %>?_method=PUT">
+        <input type="text" class="form-control" name="task" value="<%= task.task %>">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a class="btn btn-danger" href="/task">Cancel</a>
+        </div>
+    </form>
+</div>

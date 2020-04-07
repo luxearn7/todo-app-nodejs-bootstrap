@@ -1,29 +1,3 @@
-@import 'css/home.css';
-@import 'css/header.css';
-@import 'css/button.css';
-@import 'css/taskRow.css';
-@import 'css/textInput.css';
-
-:root {
-    font-family: ubuntu;
-    color: #313131;
-    text-shadow: 0.4px 0.4px 5px rgba(0,0,0,.2);
-}
-
-body {
-    background-color: whitesmoke;
-}
-.container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.form-add {
-    margin-bottom: 2rem;
-}
-
-.error-message {
-    color: red;
-    margin: 1rem 0;
-    font-style: italic;
+.td-action {
+    width: 10rem;
 }
